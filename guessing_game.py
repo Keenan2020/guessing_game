@@ -16,7 +16,6 @@ def high_score(score):
     
 
 if __name__ == '__main__':
-    # Kick off the program by calling the start_game function.
     start_game()
     player_name =  input("What is your name? ")
     rec = []
@@ -32,15 +31,18 @@ while True:
         guess = input("Pick a number between 1 and 10:  ")
         guess = int(guess)
         
-        if guess < 1 or guess > 10:
-            raise ValueError("Please use a number 1-10")
             
-    except ValueError as err:
-            print("That wont work! {}.\n".format(err))
+    except ValueError:
+            print("That wont work! Use a number 1 - 10\n")
+            score += 1
             
     else:
+
+        if guess < 1 or guess > 10:
+            print("Try a number thats 1-10!")
+            score += 1
             
-        if guess > number:
+        elif guess > number:
             print("It is lower!")
             score += 1
 
